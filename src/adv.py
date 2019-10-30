@@ -51,20 +51,39 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-Jamie = Player("Jamie", "outside")
+Jamie = Player("Jamie", room["outside"])
+current_location = None
 
-
-def map():
+playing = True
+while playing:
     for key, value in room.items():
-        # print(value)
-        if key == Jamie.location:
+        # print(value.name)
+        if value.name == Jamie.location.name:
             print(value)
-        # if r[0]==Jamie.location:
-        #   current_room.append(r)
-
-
-map()
-
-while True:
-    start = input(
-        f"Hark Triton, hark! Bellow, bid our father the Sea King rise from the depths full fowl in his fury! Black waves teeming with salt foam to smother this young mouth with pungent slime. To choke ye, engorging your organs til’ ye turn blue and bloated with bilge and brine and can scream no more only when he, crowned in cockle shells with slitherin’ tentacle tail and steaming beard take up his fell befitted arm, his coral tyne trident screeches banshee-like in the tempest and plunges right through yer gullet bursting ye -- a bulging blacker no more, but a blasted bloody film now and nothing for the harpies and the souls of dead sailors to peck and claw and feed upon only to be lapped up and swallowed by the infinite waters of the Dread Emperor himself. Forgotten to any man, to any time, forgotten to any god or devil, forgotten even to the sea, for any stuff for part of {Jamie.name}, even any scantling of your soul is {Jamie.name} no more, but is now itself the sea! \n ...Anyway, you see a cave mount in a northernly direction! Do you check it out?")
+            current_location = value
+    move = input(f"Which direction should we head, {Jamie.name}?")
+    if move == "n":
+        if Jamie.location.n_to == None:
+            print("We can't go there!")
+        else:
+            Jamie.location = Jamie.location.n_to
+    if move == "s":
+        if Jamie.location.n_to == None:
+            print("We can't go there!")
+        else:
+            Jamie.location = Jamie.location.s_to
+            print
+    if move == "e":
+        if Jamie.location.n_to == None:
+            print("We can't go there!")
+        else:
+            Jamie.location = Jamie.location.e_to
+    if move == "w":
+        if Jamie.location.n_to == None:
+            print("We can't go there!")
+        else:
+            Jamie.location = Jamie.location.w_to
+    if move == "q":
+        print(
+            f"\n Hark Triton, hark! Bellow, bid our father the Sea King rise from the depths full fowl in his fury! Black waves teeming with salt foam to smother this young mouth with pungent slime. To choke ye, engorging your organs til’ ye turn blue and bloated with bilge and brine and can scream no more only when he, crowned in cockle shells with slitherin’ tentacle tail and steaming beard take up his fell befitted arm, his coral tyne trident screeches banshee-like in the tempest and plunges right through yer gullet bursting ye -- a bulging blacker no more, but a blasted bloody film now and nothing for the harpies and the souls of dead sailors to peck and claw and feed upon only to be lapped up and swallowed by the infinite waters of the Dread Emperor himself. Forgotten to any man, to any time, forgotten to any god or devil, forgotten even to the sea, for any stuff for part of {Jamie.name}, even any scantling of your soul is {Jamie.name} no more, but is now itself the sea!")
+        playing = False
