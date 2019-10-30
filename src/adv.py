@@ -69,18 +69,18 @@ while playing:
         else:
             Jamie.location = Jamie.location.n_to
     if move == "s":
-        if Jamie.location.n_to == None:
+        if Jamie.location.s_to == None:
             print("We can't go there!")
         else:
             Jamie.location = Jamie.location.s_to
             print
     if move == "e":
-        if Jamie.location.n_to == None:
+        if Jamie.location.e_to == None:
             print("We can't go there!")
         else:
             Jamie.location = Jamie.location.e_to
     if move == "w":
-        if Jamie.location.n_to == None:
+        if Jamie.location.w_to == None:
             print("We can't go there!")
         else:
             Jamie.location = Jamie.location.w_to
