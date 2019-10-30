@@ -54,6 +54,7 @@ room['treasure'].s_to = room['narrow']
 Jamie = Player("Jamie", room["outside"])
 current_location = None
 
+print('Choose a direction (n,s,e, or w) or quit the game by pressing q!')
 playing = True
 while playing:
     for key, value in room.items():
