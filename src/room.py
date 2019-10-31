@@ -10,6 +10,13 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
+        self.items = []
+
+    def get_item(self, item):
+        self.items.append(item)
+
+    def drop_item(self, item):
+        self.items.remove(item)
 
     def __repr__(self):
         return f'{repr(self.name)} {repr(self.description)}'
